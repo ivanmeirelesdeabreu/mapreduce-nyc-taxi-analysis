@@ -43,3 +43,30 @@ as seguintes análises:
 4. Data e hora em que foi realizada a viagem mais longa;
 5. Quantidade de viagens por hora;
 6. Distância total percorrida por hora.
+
+## Considerações finais
+
+A solução foi estruturada explicitamente em **Map → Shuffle → Reduce**,
+conforme proposto na atividade.
+
+Cada questão possui um **Mapper**, responsável pela emissão dos pares
+chave/valor; a etapa **Shuffle** realiza o agrupamento dos valores por
+chave; e o **Reducer** executa a operação necessária para produzir o
+resultado agregado.
+
+Além da execução apresentada no Jupyter Notebook, foram gerados arquivos
+intermediários:
+
+```text
+q*_mapper.txt
+q*_shuffle.txt
+q*_resultado.txt
+```
+
+Esses arquivos permitem observar fisicamente o fluxo dos dados durante
+o processamento e compreender as transformações realizadas em cada
+etapa do paradigma MapReduce.
+
+Dessa forma, o projeto apresenta não somente os resultados finais das
+seis análises, mas também evidencia o funcionamento interno das etapas
+**Map**, **Shuffle** e **Reduce**.
