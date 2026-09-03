@@ -1,0 +1,5 @@
+Cash	3168095.90
+Credit card	21785219.95
+Dispute	25214.51
+Flex Fare trip	2376069.77
+No charge	53932.48

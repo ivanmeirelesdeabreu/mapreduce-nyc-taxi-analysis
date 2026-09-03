@@ -1,0 +1,5 @@
+Cash	136221
+Credit card	743405
+Dispute	16543
+Flex Fare trip	97124
+No charge	6707
