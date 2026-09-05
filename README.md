@@ -401,6 +401,9 @@ Após o Shuffle, o Reducer soma os valores correspondentes a cada tipo.
 | No charge | 6.707 |
 | **Total** | **1.000.000** |
 
+A soma das categorias resulta exatamente em **1.000.000 de viagens**,
+confirmando a consistência da contagem com o número de registros lidos.
+
 ---
 
 ## Questão 2 — Receita total por tipo de pagamento
@@ -416,6 +419,17 @@ Após o agrupamento realizado pelo Shuffle, o Reducer soma os valores
 para determinar a receita total correspondente a cada tipo de
 pagamento.
 
+| Tipo de pagamento | Receita total |
+|---|---:|
+| Credit card | $ 21.785.219,95 |
+| Cash | $ 3.168.095,90 |
+| Flex Fare trip | $ 2.376.069,77 |
+| No charge | $ 53.932,48 |
+| Dispute | $ 25.214,51 |
+| **Total geral** | **$ 27.408.532,61** |
+
+O maior volume de receita ocorreu nas viagens pagas com **cartão de crédito**.
+
 ---
 
 ## Questão 3 — Tarifa média cobrada nas viagens
@@ -428,6 +442,12 @@ fare_amount
 
 O Mapper envia as tarifas para processamento e o Reducer calcula a
 média a partir da soma das tarifas e da quantidade de registros.
+
+**Tarifa média cobrada: $ 18,8603**
+
+Arredondando para duas casas decimais:
+
+**$ 18,86**
 
 ---
 
@@ -445,6 +465,11 @@ início.
 
 Após o Shuffle, o Reducer compara as distâncias e identifica o maior
 valor, preservando a data e hora correspondente.
+
+- **Data e hora de início:** `2024-05-10 17:33:00`
+- **Distância registrada:** `86.789,20 milhas`
+
+Observação: a maior distância encontrada foi 86.789,2 milhas, registrada em uma viagem iniciada em 10/05/2024 às 17:33. Embora seja um valor incompatível com uma corrida de táxi de 13 minutos, o registro foi mantido porque consta no dataset original e a atividade não prevê tratamento ou remoção de outliers. Assim, o resultado demonstra também uma limitação importante do processamento MapReduce: o algoritmo agrega os dados recebidos, mas a qualidade do resultado depende da qualidade dos dados de entrada.
 
 ---
 
@@ -465,6 +490,37 @@ hora → 1
 O Shuffle agrupa os registros pela hora e o Reducer soma a quantidade
 de viagens correspondente a cada período.
 
+| Hora | Quantidade de viagens |
+|---:|---:|
+| 00:00 | 29.165 |
+| 01:00 | 18.822 |
+| 02:00 | 12.280 |
+| 03:00 | 8.281 |
+| 04:00 | 6.054 |
+| 05:00 | 6.194 |
+| 06:00 | 13.966 |
+| 07:00 | 28.065 |
+| 08:00 | 38.308 |
+| 09:00 | 42.309 |
+| 10:00 | 44.804 |
+| 11:00 | 48.295 |
+| 12:00 | 53.128 |
+| 13:00 | 55.362 |
+| 14:00 | 59.345 |
+| 15:00 | 60.205 |
+| 16:00 | 61.563 |
+| 17:00 | 67.880 |
+| 18:00 | 71.403 |
+| 19:00 | 62.752 |
+| 20:00 | 56.542 |
+| 21:00 | 58.333 |
+| 22:00 | 54.581 |
+| 23:00 | 42.363 |
+| **Total** | **1.000.000** |
+
+O período com maior quantidade de viagens foi **18:00**, com
+**71.403 viagens**.
+
 ---
 
 ## Questão 6 — Distância total percorrida por hora
@@ -484,6 +540,52 @@ hora → distância
 
 Após o agrupamento realizado pelo Shuffle, o Reducer soma as
 distâncias correspondentes a cada hora.
+
+| Hora | Distância total (milhas) |
+|---:|---:|
+| 00:00 | 109.568,73 |
+| 01:00 | 60.695,19 |
+| 02:00 | 36.643,43 |
+| 03:00 | 29.745,90 |
+| 04:00 | 28.350,30 |
+| 05:00 | 91.136,53 |
+| 06:00 | 131.056,86 |
+| 07:00 | 195.237,07 |
+| 08:00 | 169.111,73 |
+| 09:00 | 222.652,02 |
+| 10:00 | 138.342,76 |
+| 11:00 | 145.189,30 |
+| 12:00 | 166.186,16 |
+| 13:00 | 190.847,83 |
+| 14:00 | 215.732,27 |
+| 15:00 | 312.374,38 |
+| 16:00 | 238.718,29 |
+| 17:00 | 321.659,21 |
+| 18:00 | 252.601,19 |
+| 19:00 | 265.021,98 |
+| 20:00 | 267.461,66 |
+| 21:00 | 283.775,08 |
+| 22:00 | 189.960,49 |
+| 23:00 | 161.753,45 |
+| **Total** | **4.223.821,81** |
+
+A maior distância acumulada foi registrada às **17:00**, com
+**321.659,21 milhas**.
+
+---
+
+## Conferência dos resultados
+
+A execução utilizada para esta versão do README carregou
+**1.000.000 de registros**.
+
+Duas verificações simples de consistência confirmam esse total:
+
+- a soma das categorias de pagamento da Questão 1 é **1.000.000**;
+- a soma das quantidades por hora da Questão 5 também é **1.000.000**.
+
+A implementação segue explicitamente o fluxo **Map → Shuffle → Reduce**
+solicitado na atividade.
 
 ---
 
