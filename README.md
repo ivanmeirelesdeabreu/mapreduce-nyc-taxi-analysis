@@ -1,4 +1,4 @@
-# 🚕 Análise de Viagens de Táxi de Nova York com MapReduce
+# Análise de Viagens de Táxi de Nova York com MapReduce
 
 Projeto desenvolvido para aplicação do paradigma de programação **MapReduce**
 na análise de dados de viagens de táxi da cidade de Nova York.
@@ -10,7 +10,7 @@ Google Colab**, seguindo explicitamente o fluxo:
 
 ---
 
-## 🎓 Informações Acadêmicas
+## Informações Acadêmicas
 
 **Instituição:** Centro Universitário IESB  
 **Curso:** Ciência de Dados  
@@ -21,7 +21,7 @@ Google Colab**, seguindo explicitamente o fluxo:
 
 ---
 
-## 📌 Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto foi desenvolvido como atividade avaliativa da disciplina
 **Processamento de Dados Massivos**, do curso de **Ciência de Dados do
@@ -44,7 +44,7 @@ fisicamente os dados produzidos em cada etapa do MapReduce.
 
 ---
 
-## 🎯 Objetivos da Atividade
+## Objetivos da Atividade
 
 A partir do dataset de viagens de táxi de Nova York, foram realizadas
 as seguintes análises:
@@ -58,7 +58,7 @@ as seguintes análises:
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 O projeto foi organizado de forma a separar o notebook, os dados
 utilizados, a documentação da atividade e os arquivos produzidos
@@ -105,7 +105,7 @@ mapreduce-nyc-taxi-analysis/
     └── data_dictionary_trip_records_yellow.pdf
 ```
 
-### 📓 `notebook/`
+### `notebook/`
 
 Contém o Jupyter Notebook utilizado para desenvolver e executar a
 atividade.
@@ -124,7 +124,7 @@ O notebook contém:
 O notebook foi salvo com sua execução, permitindo visualizar tanto o
 código quanto os resultados produzidos.
 
-### 📊 `data/`
+### `data/`
 
 Diretório destinado ao dataset utilizado como entrada para o
 processamento.
@@ -139,7 +139,7 @@ https://huggingface.co/datasets/alexvaroz/nyc_taxi_trip_2024_p1_sample/resolve/m
 A amostra utilizada na execução possui **1.000.000 de registros de
 viagens**.
 
-### 📤 `output/`
+### `output/`
 
 Contém os arquivos intermediários e finais produzidos durante a
 execução do MapReduce.
@@ -164,7 +164,7 @@ q2_resultado.txt
 
 correspondem às etapas da **Questão 2**.
 
-### 📚 `docs/`
+### `docs/`
 
 Contém os documentos utilizados como referência:
 
@@ -173,7 +173,7 @@ Contém os documentos utilizados como referência:
 
 ---
 
-## 📖 Dataset
+## Dataset
 
 O dataset contém informações sobre viagens de táxi da cidade de
 Nova York.
@@ -205,7 +205,7 @@ O campo `payment_type` utiliza os seguintes códigos:
 
 ---
 
-# ⚙️ Implementação MapReduce
+# Implementação MapReduce
 
 O processamento foi estruturado explicitamente em três etapas:
 
@@ -236,7 +236,7 @@ O processamento foi estruturado explicitamente em três etapas:
                    Resultado
 ```
 
-## 1️⃣ Map
+## Map
 
 O **Mapper** percorre os registros do dataset e transforma os dados
 necessários para cada análise em pares:
@@ -259,7 +259,7 @@ chave/valor que serão utilizados nas etapas seguintes.
 
 ---
 
-## 2️⃣ Shuffle
+## Shuffle
 
 A etapa **Shuffle** recebe a saída produzida pelo Mapper e agrupa os
 valores que possuem a mesma chave.
@@ -276,7 +276,7 @@ agregação.
 
 ---
 
-## 3️⃣ Reduce
+## Reduce
 
 O **Reducer** recebe cada chave acompanhada dos valores agrupados pelo
 Shuffle e executa a operação necessária para a questão.
@@ -297,7 +297,7 @@ Cash        → 136221
 
 ---
 
-# 🔄 Fluxo dos Arquivos Gerados
+# Fluxo dos Arquivos Gerados
 
 Uma característica desta implementação é a geração de arquivos
 intermediários que permitem acompanhar o processamento.
@@ -329,7 +329,7 @@ visualização das transformações realizadas em cada etapa.
 
 ---
 
-## 🗂️ Arquivos `*_mapper.txt`
+## Arquivos `*_mapper.txt`
 
 Contêm os pares **chave/valor** emitidos pelo Mapper antes do
 agrupamento.
@@ -344,7 +344,7 @@ Credit card    1
 
 ---
 
-## 🗂️ Arquivos `*_shuffle.txt`
+## Arquivos `*_shuffle.txt`
 
 Contêm os valores agrupados de acordo com suas respectivas chaves,
 representando a etapa intermediária entre Map e Reduce.
@@ -358,7 +358,7 @@ Cash        → [1, 1, ...]
 
 ---
 
-## 🗂️ Arquivos `*_resultado.txt`
+## Arquivos `*_resultado.txt`
 
 Contêm os resultados finais produzidos pelo Reducer.
 
@@ -378,7 +378,7 @@ as diferentes etapas do processamento MapReduce.
 
 ---
 
-# 📊 Análises Realizadas
+# Análises Realizadas
 
 ## Questão 1 — Número de viagens por tipo de pagamento
 
@@ -589,7 +589,7 @@ solicitado na atividade.
 
 ---
 
-# ▶️ Como Executar o Projeto
+# Como Executar o Projeto
 
 ## 1. Clonar o repositório
 
@@ -675,7 +675,7 @@ seguintes.
 
 ---
 
-# 🛠️ Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 - **Python**
 - **Jupyter Notebook**
@@ -687,7 +687,7 @@ seguintes.
 
 ---
 
-# 📝 Conclusão
+# Conclusão
 
 A solução foi estruturada explicitamente em **Map → Shuffle → Reduce**,
 conforme proposto na atividade.
